@@ -1,0 +1,17 @@
+<h1>Register for Formuoli</h1>
+
+<%=form_tag("/users") do %>
+    <p>
+    <%= label_tag "Username:"%>
+    <%= text_field_tag "username"%>
+    <%= label_tag "Email:"%>   
+    <%= text_field_tag "email"%>
+    <%= label_tag "Password:"%>
+    <%= text_field_tag "password"%>
+    <%= label_tag "First Name:"%>
+    <%= text_field_tag "first_name"%>     
+    <%= label_tag "Last Name:"%>
+    <%= text_field_tag "last_name"%>
+    </p>
+    <%= submit_tag "Register"%>
+    <% end %>
