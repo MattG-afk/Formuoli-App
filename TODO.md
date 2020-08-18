@@ -7,6 +7,10 @@ ______________________________________________________
 get/login
     show login form  
 
+    1.welcome user
+    2.logout
+    3.create protected page
+
 post/login
     creates session for user
 
