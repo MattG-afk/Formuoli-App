@@ -10,9 +10,24 @@
   </head>
 
   <body>
+      <div class="navbar">
+      <nav>
+     <div class="logo">
+Formuoli</div>
+<ul class="menu-area">
+<li><a href="/">Home</a></li>
+<li><a href="/register">Signup</a></li>
+<li><a href="/login">Login</a></li>
+<li><a href="/logout">Logout</a></li>
+<li><a href="#">Recipes</a></li>
+</ul>
+</nav>    
+</div>
+
     <% if session[:current_user_id] %>
       <nav>
         Welcome <%= @current_user.first_name %>!
+        | <a href="/logout">Logout</a>
       </nav>
       <% end %>
       <%= yield %>
