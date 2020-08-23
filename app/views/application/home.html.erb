@@ -1,0 +1,14 @@
+<% if session[:current_user_id] %>
+      <h1>
+        Welcome <%= @current_user.first_name%>! <br>
+
+        Click create recipes to start or All Recipes to see your saved recipes! 
+
+      </h1>
+    <%else%>
+      <h1>
+        Welcome To Formuoli!<br>
+
+        Please sign up or login to see your recipes 
+      </h1>
+<% end %>

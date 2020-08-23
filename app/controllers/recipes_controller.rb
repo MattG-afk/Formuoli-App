@@ -1,34 +1,35 @@
 class RecipesController < ApplicationController
-    before action :require_login
+    before_action :require_login
 
     def show
-        @recipe = Recipe.find(params[:id])
+      @recipe=Recipe.new
+      @recipe=Recipe.find_by(params[:name])
     end
     
     def index
-        @recipes = Recipe.all
+        @recipe=Recipe.all
     end
     
     def new
-        @recipe = Recipe.new
-        @recipe.ingredients.build(name: "first")
-        @recipe.ingredients.build(name: "second")
+      @recipe = Recipe.new
+      @recipe.ingredients.build
     end
     
     def create
-        recipe = Recipe.create(recipe_params)
-        redirect_to recipes_path
+      @recipe = Recipe.new
+      @recipe.name = params[:name]
+      @recipe.content = params[:content]
+      @recipe.ingredient_name = params[:ingredient][:name]
+      recipe.ingredient_quantity= parasms [:ingredient][:quantity]
+      @recipe.save
     end
     
       private
     
       def recipe_params
-        params.require(:recipe).permit(:title, ingredients_attributes: [
-          :name,
-          :quantity
-          ]
-        )
+         @recipe = params.require(:recipe).permit(:name,:content, ingredients_attributes: [:name, :quantity])
       end
-    end
+
+
     
 end

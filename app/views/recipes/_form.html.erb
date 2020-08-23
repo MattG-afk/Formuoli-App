@@ -1,15 +1,21 @@
-<%= form_for @recipe do |f| %>
+<h1>Recipe:</h1>
+<%= form_for(@recipe) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br>
+  <br>
   <%= f.label :content %>
-  <%= f.text_field :content %>
+  <%= f.text_area :content %> <br>
  
+
+ <h1>Ingredients:</h1>
   <%= f.fields_for :ingredients do |i| %>
     <%= i.label :name %>
     <%= i.text_field :name %><br>
  
     <%= i.label :quantity %>
     <%= i.text_field :quantity %><br>
+
+    <br>
  
   <% end %>
  

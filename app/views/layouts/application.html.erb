@@ -15,21 +15,20 @@
      <div class="logo">
 Formuoli</div>
 <ul class="menu-area">
-<li><a href="/">Home</a></li>
-<li><a href="/register">Signup</a></li>
-<li><a href="/login">Login</a></li>
-<li><a href="/logout">Logout</a></li>
-<li><a href="#">Recipes</a></li>
+
+
+  <% if logged_in? %>
+  <li><a href="/">Home</a></li>
+   <li><%= link_to "Recipes", recipes_path %></li>
+  <li><%= link_to "Create Recipe", new_recipe_path %></li>
+   <li><%= link_to "Logout", logout_path, method:"delete" %></li>
+  <% else %>
+  <li><a href="/register">Signup</a></li>
+  <li><a href="/login">Login</a></li>
+  <% end %>
 </ul>
 </nav>    
 </div>
-
-    <% if session[:current_user_id] %>
-      <nav>
-        Welcome <%= @current_user.first_name %>!
-        | <a href="/logout">Logout</a>
-      </nav>
-      <% end %>
       <%= yield %>
   </body>
 </html>
