@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   #signup routes
   get '/register', to: 'users#new'
   post '/users', to: 'users#create'
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :recipes do
     resource :ingredients
-  end
+  end  
   resources :users do
     resource :recipes, only: [:index, :show]
   end
