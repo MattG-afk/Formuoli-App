@@ -1,5 +1,7 @@
-<h2> <%= @recipe.name %></h2>
-<h2> <%= @recipe.content %></h2>
+<% @recipe.name do |recipes| %>
+<h2> <%= recipes.name %></h2>
+<h2> <%= recipes.content %></h2>
+<%end%>
 
 <h3>Ingredients</h3>
 

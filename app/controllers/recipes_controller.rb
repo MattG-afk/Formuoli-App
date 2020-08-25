@@ -4,25 +4,27 @@ class RecipesController < ApplicationController
 
     def show
       @recipe=Recipe.find_by(params[:name])
-      binding.pry
+      #binding.pry
     end
     
     def index
         @recipe=Recipe.all
+        #binding.pry
     end
     
     def new
       @recipe = Recipe.new
       @recipe.ingredients.build(name: "name")
-      @recipe.ingredients.build(quantity: "quantity")\
+      @recipe.ingredients.build(quantity: "quantity")
 
     end
     
     def create
-      @recipe = Recipe.new(recipe_params)
+      @recipe = Recipe.create(recipe_params)
   
       @recipe.save
-      binding.pry
+
+      #binding.pry
       redirect_to recipes_path
     end
     
@@ -30,6 +32,7 @@ class RecipesController < ApplicationController
         def recipe_params
           params.require(:recipe).permit(:name,:content, ingredients_attributes: [
             :recipe_id,
+            :user_id,
             :name,
             :quantity
             ]

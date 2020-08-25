@@ -1,5 +1,6 @@
 <h1>Login</h1>
 
+
 <% if flash[:notice] %>
 <h2><%= flash[:notice] %></h2>  
 <% end %>
@@ -14,4 +15,6 @@
     <%= text_field_tag "password"%>
     </p>
     <%= submit_tag "Login"%>
-    <% end %>
+<% end %>
+
+<%= link_to "Log In with Google", '/auth/google_oauth2' %>

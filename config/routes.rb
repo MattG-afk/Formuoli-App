@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  get '/auth/:provider/callback' => 'sessions#omniauth'
   #signup routes
   get '/register', to: 'users#new'
   post '/users', to: 'users#create'
@@ -18,10 +18,7 @@ Rails.application.routes.draw do
   root 'application#home' 
 
   resources :recipes
-  resources :ingredients
-  resources :recipes do
-    resource :ingredients
-  end  
+  resource :ingredients
   resources :users do
     resource :recipes, only: [:index, :show]
   end
