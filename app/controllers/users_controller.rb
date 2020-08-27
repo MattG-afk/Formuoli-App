@@ -6,15 +6,17 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new
-        @user.username = params[:username]
-        @user.email = params[:email]
-        @user.password = params[:password]
-        @user.first_name = params[:first_name]
-        @user.last_name = params[:last_name]
+        @user = User.new(user_params)
+
         @user.save
 
         redirect_to "/login"
+    end
+
+    private 
+
+    def user_params
+        params.permit(:username, :email, :password, :first_name, :last_name)
     end
 
 end
