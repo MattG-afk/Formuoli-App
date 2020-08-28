@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/auth/:provider/callback' => 'sessions#omniauth'
+  get '/auth/google_oauth2/callback' => 'sessions#omniauth'
   #signup routes
   get '/register', to: 'users#new'
   post '/users', to: 'users#create'

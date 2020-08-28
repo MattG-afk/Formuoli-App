@@ -24,7 +24,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
 
-gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'omniauth-google-oauth2'
 

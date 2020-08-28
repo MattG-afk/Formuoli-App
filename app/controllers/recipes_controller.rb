@@ -4,23 +4,22 @@ class RecipesController < ApplicationController
 
     def show
       @recipe=Recipe.find_by(params[:name])
-      #binding.pry
+      binding.pry
     end
     
     def index
-        @recipe=Recipe.all
+        @recipes =Recipe.all
         #binding.pry
     end
     
     def new
       @recipe = Recipe.new
       @recipe.ingredients.build(name: "name")
-      @recipe.ingredients.build(quantity: "quantity")
-
+      
     end
     
     def create
-      @recipe = Recipe.create(recipe_params)
+      @recipe = Recipe.new(recipe_params)
   
       @recipe.save
 
@@ -30,7 +29,7 @@ class RecipesController < ApplicationController
     
       private
         def recipe_params
-          params.require(:recipe).permit(:name,:content, ingredients_attributes: [
+          params.require(:recipe).permit(:id,:name,:content, ingredients_attributes: [
             :recipe_id,
             :user_id,
             :name,

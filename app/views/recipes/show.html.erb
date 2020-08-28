@@ -1,6 +1,8 @@
-<% @recipe.name do |recipes| %>
-<h2> <%= recipes.name %></h2>
-<h2> <%= recipes.content %></h2>
+<% @recipe.name do |r| %>
+
+<h2> <%= r.name %></h2>
+<h2> <%= r.content %></h2>
+
 <%end%>
 
 <h3>Ingredients</h3>

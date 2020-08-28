@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2020_08_17_165601) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.integer "recipe_id"
     t.string "name"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
