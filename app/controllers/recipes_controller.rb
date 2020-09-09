@@ -3,8 +3,8 @@ class RecipesController < ApplicationController
     before_action :require_login
 
     def show
-      @recipe=Recipe.find_by(params[:name])
-      binding.pry
+      @recipe = Recipe.find(params[:id])
+      #binding.pry
     end
     
     def index
